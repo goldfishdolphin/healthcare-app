@@ -80,7 +80,7 @@ function ConsultationForm() {
                         required
                         value={patientName}
                         onChange={(e) => setPatientName(e.target.value)}
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
                         placeholder="Enter patient's full name"
                     />
                 </div>
@@ -96,7 +96,7 @@ function ConsultationForm() {
                         dateFormat="yyyy-MM-dd"
                         placeholderText="Select date"
                         required
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
                     />
                 </div>
 
@@ -110,7 +110,7 @@ function ConsultationForm() {
                         rows={8}
                         value={notes}
                         onChange={(e) => setNotes(e.target.value)}
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
                         placeholder="Enter detailed consultation notes..."
                     />
                 </div>
@@ -118,7 +118,7 @@ function ConsultationForm() {
                 <button 
                     type="submit" 
                     disabled={loading}
-                    className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                    className="w-full bg-teal-600 hover:bg-teal-700 disabled:bg-teal-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
                 >
                     {loading ? 'Generating Summary...' : 'Generate Summary'}
                 </button>
@@ -151,7 +151,7 @@ export default function Product() {
                 fallback={
                     <div className="container mx-auto px-4 py-12">
                         <header className="text-center mb-12">
-                            <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
+                            <h1 className="text-5xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent mb-4">
                                 Healthcare Professional Plan
                             </h1>
                             <p className="text-gray-600 dark:text-gray-400 text-lg mb-8">

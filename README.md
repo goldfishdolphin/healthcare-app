@@ -8,7 +8,7 @@ An AI-powered healthcare consultation assistant that transforms doctor's notes i
 - **Action Items**: Clear next steps and follow-up actions for every consultation
 - **Patient Communications**: Draft patient-friendly email communications automatically
 - **Real-time Streaming**: Live AI-generated responses using OpenAI's GPT-5
-- **Secure Authentication**: HIPAA-compliant user authentication with Clerk
+- **Secure Authentication**: User authentication with Clerk
 - **Modern UI**: Beautiful, responsive interface built with Next.js and Tailwind CSS
 
 ## 🛠️ Tech Stack
@@ -115,7 +115,13 @@ healthcare-app/
    - Next steps for the doctor
    - Draft email to patient in patient-friendly language
 
+## 🔒 Security & Privacy
 
+- **Secure Authentication**: Clerk-based authentication with JWT tokens
+- **Protected API Routes**: All endpoints require authentication
+- **HTTPS Encryption**: Secure data transmission via Vercel
+
+**Note**: This application is a demonstration project. For production use with actual patient data, additional security measures and compliance requirements (such as HIPAA) would need to be implemented, including Business Associate Agreements with third-party services, encrypted data storage, comprehensive audit logging, and proper data retention policies.
 
 ## 🚢 Deployment
 
@@ -132,9 +138,12 @@ Make sure to set up environment variables in your Vercel project settings.
 ```bash
 vercel dev       # Start development server with both frontend and API
 vercel --prod    # Deploy to production
+npm run build    # Build for production (local)
+npm run lint     # Run ESLint
 ```
-
 
 ## ⚠️ Disclaimer
 
 This application is an AI-assisted tool designed to help healthcare professionals. All AI-generated content should be reviewed by qualified medical professionals before use. This tool does not replace professional medical judgment.
+
+**Privacy Notice**: This is a demonstration project. It is not currently HIPAA compliant and should not be used with real patient data without implementing proper security controls, obtaining necessary Business Associate Agreements, and ensuring full compliance with healthcare data privacy regulations.

@@ -1,40 +1,140 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# MediNotes Pro 📋
 
-## Getting Started
+An AI-powered healthcare consultation assistant that transforms doctor's notes into professional medical summaries, actionable next steps, and patient-friendly email communications.
 
-First, run the development server:
+## 🌟 Features
+
+- **Professional Summaries**: Generate comprehensive medical record summaries from consultation notes
+- **Action Items**: Clear next steps and follow-up actions for every consultation
+- **Patient Communications**: Draft patient-friendly email communications automatically
+- **Real-time Streaming**: Live AI-generated responses using OpenAI's GPT-5
+- **Secure Authentication**: HIPAA-compliant user authentication with Clerk
+- **Modern UI**: Beautiful, responsive interface built with Next.js and Tailwind CSS
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Framework**: Next.js 15.5.6 with React 19
+- **Authentication**: Clerk (@clerk/nextjs)
+- **Styling**: Tailwind CSS 4
+- **UI Components**: 
+  - React DatePicker for date selection
+  - React Markdown for formatted output
+  - Real-time streaming with @microsoft/fetch-event-source
+- **Language**: TypeScript 5
+
+### Backend
+- **Framework**: FastAPI (Python)
+- **AI**: OpenAI GPT-5 Nano
+- **Authentication**: fastapi-clerk-auth
+- **Data Validation**: Pydantic
+
+## 📋 Prerequisites
+
+- Node.js 20+ and npm/yarn
+- Python 3.8+
+- OpenAI API key
+- Clerk account for authentication
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <your-repo-url>
+cd healthcare-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Frontend Dependencies
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### 3. Install Python Dependencies
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+```bash
+pip install -r requirements.txt
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Environment Variables
 
-## Learn More
+Create a `.env.local` file in the root directory with the following variables:
 
-To learn more about Next.js, take a look at the following resources:
+```env
+# Clerk Authentication
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+CLERK_JWKS_URL=your_clerk_jwks_url
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+# OpenAI
+OPENAI_API_KEY=your_openai_api_key
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 5. Run the Development Server
 
-## Deploy on Vercel
+```bash
+vercel dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This will start both the Next.js frontend and the Python API backend locally. The application will be available at [http://localhost:3000](http://localhost:3000)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 📁 Project Structure
+
+```
+healthcare-app/
+├── api/
+│   └── index.py           # FastAPI backend with OpenAI integration
+├── pages/
+│   ├── _app.tsx          # Next.js app configuration
+│   ├── _document.tsx     # Custom document structure
+│   ├── index.tsx         # Landing page with features
+│   └── product.tsx       # Main consultation form interface
+├── public/               # Static assets
+├── styles/
+│   └── globals.css       # Global styles and Tailwind imports
+├── eslint.config.mjs     # ESLint configuration
+├── next.config.ts        # Next.js configuration
+├── package.json          # Node dependencies
+├── requirements.txt      # Python dependencies
+├── tsconfig.json         # TypeScript configuration
+└── README.md            # This file
+```
+
+## 🎯 Usage
+
+1. **Sign In**: Use the Clerk authentication to sign in or create an account
+2. **Access Consultation Form**: Click "Go to App" or "Open Consultation Assistant"
+3. **Fill in Details**:
+   - Enter patient's name
+   - Select visit date
+   - Add consultation notes
+4. **Submit**: Click "Generate Summary" to get AI-powered output
+5. **Review**: The system will generate:
+   - Summary of visit for the doctor's records
+   - Next steps for the doctor
+   - Draft email to patient in patient-friendly language
+
+
+
+## 🚢 Deployment
+
+The application is configured for deployment on Vercel:
+
+```bash
+vercel --prod
+```
+
+Make sure to set up environment variables in your Vercel project settings.
+
+## 🧪 Development Scripts
+
+```bash
+vercel dev       # Start development server with both frontend and API
+vercel --prod    # Deploy to production
+```
+
+
+## ⚠️ Disclaimer
+
+This application is an AI-assisted tool designed to help healthcare professionals. All AI-generated content should be reviewed by qualified medical professionals before use. This tool does not replace professional medical judgment.
